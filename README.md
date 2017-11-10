@@ -13,10 +13,9 @@ The main issue in this program was getting around invalid input. This was handle
 - `$ git clone git@github.com:stephaniedefranco/bankservice.git`
 
 ## Execution
-1) `$ javac bankservice/*.java`
-2) `$ java bankservice/AccountController`
-
-**Note: make sure you are in the parent directory of bankservice in order to run these commands.
+1) cd to the home directory (or the parent directory of this repository)
+2) `$ javac bankservice/*.java`
+3) `$ java bankservice/AccountController`
 
 
 ## Test Plan
