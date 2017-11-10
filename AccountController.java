@@ -13,7 +13,7 @@ public class AccountController {
     }
 
     private static double amountHandler(String service) {
-        double amount;
+        double amount = 0;
         String errMsg = "Invalid amount. Please use positive decimal amounts and do not exceed two decimal points." +
                 "\nPlease enter an amount to ";
         System.out.println("Please enter an amount to " + service + ": ");
@@ -32,7 +32,7 @@ public class AccountController {
         return amount;
     }
 
-    private static void bankServices(BankAccount account) {
+    public static void bankServices(BankAccount account) {
 
         Scanner scan = new Scanner(System.in);
         String command = "";
@@ -49,7 +49,7 @@ public class AccountController {
                     account.withdraw(amountHandler("withdraw"));
                     break;
                 case "balance":
-                    System.out.println("The current balance is $" + account.getBalance());
+                    printBalance(account);
                     break;
                 case "exit":
                     System.exit(0);
@@ -60,12 +60,17 @@ public class AccountController {
         }
     }
 
+    private static void printBalance(BankAccount account) {
+        System.out.printf("The current balance is: $%.2f", account.getBalance());
+        System.out.println();
+
+    }
+
     private static boolean hasTwoDecimalPoints(double amount) {
         String text = Double.toString(Math.abs(amount));
         int integerPlaces = text.indexOf('.');
         int decimalPlaces = text.length() - integerPlaces - 1;
         return decimalPlaces < 3;
     }
-
 
 }
