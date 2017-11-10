@@ -15,7 +15,8 @@ The main issue in this program was getting around invalid input. This was handle
 ## Execution
 1) `$ javac bankservice/*.java`
 2) `$ java bankservice/AccountController`
-*Note: make sure you are in the parent directory of bankservice in order to run these commands.
+
+**Note: make sure you are in the parent directory of bankservice in order to run these commands.
 
 
 ## Test Plan
