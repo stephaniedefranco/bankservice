@@ -12,23 +12,28 @@ public class AccountController {
         bankServices(bankAccount);
     }
 
+    private static void errMsg(){
+        String errMsg = "Invalid amount. Please use positive decimal amounts and do not exceed two decimal points.";
+        System.out.println(errMsg);
+    }
+
     private static double amountHandler(String service) {
         double amount = 0;
-        String errMsg = "Invalid amount. Please use positive decimal amounts and do not exceed two decimal points." +
-                "\nPlease enter an amount to ";
         System.out.println("Please enter an amount to " + service + ": ");
+        try {
+            amount = scan.nextDouble();
+            if (amount < 0 || !hasTwoDecimalPoints(amount)) {
+                errMsg();
+                return amountHandler(service);
+            }
+        } catch (InputMismatchException e) {
+            if (!scan.hasNextDouble()) {
+                scan.next();
+                errMsg();
+                return amountHandler(service);
+            }
+        }
 
-        if (scan.hasNextDouble()) {
-            amount = scan.nextDouble();
-        } else {
-            scan.next();
-            System.out.println(errMsg + service + ": ");
-            amount = scan.nextDouble();
-        }
-        while (amount < 0 || !hasTwoDecimalPoints(amount)) {
-            System.out.println(errMsg + service + ": ");
-            amount = scan.nextDouble();
-        }
         return amount;
     }
 
@@ -74,3 +79,4 @@ public class AccountController {
     }
 
 }
+
