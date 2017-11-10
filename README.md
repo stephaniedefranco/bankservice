@@ -8,9 +8,9 @@ The main issue in this program was getting around invalid input. This was handle
 
 
 ## Installation & Setup
-- clone the bankservice repo into your home directory
 - open terminal
 - cd to home directory
+- `$ git clone git@github.com:stephaniedefranco/bankservice.git`
 
 ## Execution
 1) `$ javac bankservice/*.java`
